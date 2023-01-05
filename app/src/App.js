@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+
+import {Routes,Route} from "react-router-dom"
+import Header from "./components/Header.jsx"
+import Events from "./pages/Events/Events.jsx"
+import Oportunities from "./pages/Oportunities/Oportunities.jsx"
+import Teams from "./pages/Teams/Teams.jsx"
+import Chat from "./pages/Chat/Chat.jsx"
+import Calendar from "./pages/Calendar/Calendar.jsx"
+import Members from "./pages/Members/Members.jsx"
+import style from "./App.css"
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <main>
+      <Routes>
+      <Route path="/events" element={<Events/>}/>
+      <Route path="/oportunities" element={<Oportunities/>}/>
+      <Route path="/teams" element={<Teams/>}/>
+      <Route path="/chat" element={<Chat/>}/>
+      <Route path="/calendar" element={<Calendar/>}/>
+      <Route path="/members" element={<Members/>}/>
+      </Routes>
+      </main>
     </div>
   );
 }
