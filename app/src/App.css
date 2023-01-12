@@ -5,8 +5,7 @@
 }
 
 .App{
-    font-family: 'Poppins', sans-serif;
-    
+  font-family: 'Poppins', sans-serif;
 }
 
 nav{
@@ -17,6 +16,10 @@ nav{
     height: 100vW;
     position: fixed;
     background-color: #2E3789;
+}
+
+img{
+    width: 500px;
 }
 
 nav li{
@@ -46,4 +49,9 @@ main{
     color: #3E435D;
     font-weight: 500;
     margin-bottom: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: #4318FF;
 }

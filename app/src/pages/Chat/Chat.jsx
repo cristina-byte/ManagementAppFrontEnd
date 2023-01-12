@@ -1,5 +1,15 @@
-export default function Chat(){
+
+
+
+
+function Chat(){
     return (
-        <div>We are in chat</div>
+       <section className="chat-section">
+        
+
+
+       </section>
     )
 }
+
+export default Chat

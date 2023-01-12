@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 
 export default function Event(props){
 
@@ -6,7 +7,7 @@ export default function Event(props){
             <img src={props.imgUrl} alt="" />
             <div className="event-data">
             <h1>{props.name}</h1>
-            <button>View</button>
+            <Link to={"/events/"+props.id}>View</Link>
             </div>
            
         </div>

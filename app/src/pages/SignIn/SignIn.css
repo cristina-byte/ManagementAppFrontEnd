@@ -1,0 +1,51 @@
+.signIn{
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: space-around;
+    height:100vh;
+    flex-wrap: wrap;
+}
+
+.register{
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: space-around;
+    height:100vh;
+    flex-wrap: wrap;
+}
+
+
+
+
+.welcome-message{
+    color:#F2F2F2;
+    width:50%;
+    min-width: 300px;
+    background: linear-gradient(158.71deg, #2E3789 32.61%, rgba(255, 111, 30, 0.94) 131.44%);
+    border-radius: 0px 0px 200px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-message p{
+    font-weight: 300;
+}
+
+.form-container{
+    font-family: 'DM Sans', sans-serif;
+    width: 50%;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 100px;
+}
+
+form{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}

@@ -1,31 +1,34 @@
-import { useEffect,useState } from "react"
+import {useQuery} from "react-query"
+import axiosInstanceLocal from "../../axiosLocal"
 import Member from "../../components/Member"
 import style from "./Members.css"
 
 export default function Members(){
 
-    const [members, setMembers]=useState(null)//this is a hook useStaet, which is a function javascript
+    const fetchMembers=async()=>{
+        const response=await axiosInstanceLocal.get("/Users?page=1")
+        return response.data
+    }
 
-    useEffect(()=>{
-        fetch('https://localhost:7257/api/Users/page?page=1')
-        .then(result=>result.json())
-        .then(data=>{console.log(data); return setMembers(data)})
-    },[])
+    const {
+        data,
+        isLoading
+    }=useQuery(['membersQueryKey'],fetchMembers)
 
     function getMembers(){
-        return members.map(member=><Member key={member.id} 
+        return data.map(member=><Member key={member.id} 
             name={member.name} role={member.role} 
-            isOnline={member.isOnline} imgUrl={member.imageLink} /> )
+            isOnline={member.isOnline} imgUrl={member.imageLink} id={member.id} /> )
     }
 
     return (
         <section className="members">
-           <h1 className="title-page">Members {members && members.length}</h1>
+           <h1 className="title-page">Members {data && data.length}</h1>
            <div className="members-container">
-            {members && getMembers()}
+            {data && getMembers()}
            </div>
            <div className="navigation-buttons">
-            {members && members}
+           
            </div>
         </section>
     )

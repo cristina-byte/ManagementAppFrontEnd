@@ -1,14 +1,15 @@
+import {Link} from "react-router-dom"
 
 export default function Header(){
     return (
     <nav>
         <ul>
-            <li><a href="/members">Members</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/oportunities">Oportunities</a></li>
-            <li><a href="/teams">Teams</a></li>
-            <li><a href="/chat">Chat</a></li>
-            <li><a href="/calendar">Calendar</a></li>
+            <li> <Link to="members">Members</Link></li>
+            <li> <Link to="events">Events</Link></li>
+            <li> <Link to="teams">Teams</Link></li>
+            <li> <Link to="chat">Chat</Link></li>
+            <li> <Link to="oportunities">Oportunities</Link></li>
+            <li> <Link to="calendar">Calendar</Link></li>
         </ul>
     </nav>
     )

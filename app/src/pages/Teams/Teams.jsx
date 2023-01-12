@@ -1,5 +1,15 @@
-export default function Teams(){
+
+
+
+
+function Teams(){
+
     return (
-        <div>We are in teams</div>
-    )
+        <section className="team-section">
+
+
+        </section>
+      )
 }
+
+export default Teams
