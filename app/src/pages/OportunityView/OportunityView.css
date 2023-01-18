@@ -1,0 +1,34 @@
+.oportunity-data img{
+    width: 331px;
+    border-radius: 4px;
+}
+
+.oportunity-data .name{
+    color: #050505;
+    margin-top: 20px;
+}
+
+.oportunity-data .date{
+    color: #E56F8C;
+    margin-top: 5px;
+}
+
+.oportunity-data .address{
+    color: #848484;
+    margin-top: 5px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #CCCCCC;
+    width: 70%;
+}
+
+.title{
+    color: #1B2559;
+    font-size: 18px;
+    margin-top:20px;
+}
+
+.oportunity-data .description{
+    color: #3E435D;
+    font-size: 16px;
+    margin-top: 5px;
+}

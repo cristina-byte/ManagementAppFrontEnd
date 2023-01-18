@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom"
+import Moment from 'moment'
 
 export default function Event(props){
 
@@ -6,10 +7,9 @@ export default function Event(props){
         <div className="event">
             <img src={props.imgUrl} alt="" />
             <div className="event-data">
-            <h1>{props.name}</h1>
-            <Link to={"/events/"+props.id}>View</Link>
+            <h3>{props.name}</h3>
+            <Link className="button" to={""+props.id}>View</Link>
             </div>
-           
         </div>
     )
 

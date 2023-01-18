@@ -4,16 +4,19 @@
     box-sizing: border-box;
 }
 
-.App{
-  font-family: 'Poppins', sans-serif;
+#root{
+    font-family: 'Poppins', sans-serif;
 }
 
-nav{
+.menu{
     font-weight: 300;
-    font-size: 14px;
-    padding-top: 101px;
-    width: 163px;
-    height: 100vW;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    min-width: 100px;
+    height: 100vh;
     position: fixed;
     background-color: #2E3789;
 }
@@ -22,19 +25,28 @@ img{
     width: 500px;
 }
 
-nav li{
+.menu li{
     list-style: none;
-    margin-bottom: 50px;
+    
 }
 
-nav li a{
+.menu li a{
+    width: 70px;
+    height: 50px;
+    padding: 5px;
     text-decoration: none;
     color: white;
 }
 
-nav ul{
+.menu li a.active{
+    background-color: #61658f8b;
+    border-radius: 4px;
+}
+
+.menu ul{
     display: flex;
     flex-direction: column;
+    gap: 30px;
     align-items: center;
 }
 
@@ -48,10 +60,96 @@ main{
     font-size: 24px;
     color: #3E435D;
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 a{
     text-decoration: none;
     color: #4318FF;
+}
+
+.page{
+    padding-left:100px;
+    margin-left: 6%;
+    padding-top: 70px;  
+    padding-bottom: 50px;
+}
+
+.current-user-header img{
+    width:30px;
+    margin-left: 10px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.current-user-header{
+    position: fixed;
+    right: 10px;
+    font-size: 13px;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   padding: 7px 13px;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.page-item{
+    list-style: none;
+}
+
+.page-link{
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #2E3789;
+    border-radius: 6px;
+    display: flex;
+    padding: 10px 15px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.active-link{
+    background:#60659b;
+}
+
+
+/*Oportunity style*/
+
+
+
+.event-data, .oportunity-data{
+    padding: 10px;
+    border-radius: 9px;
+    background-color: white;
+    box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
+    width: 70%;
+}
+
+.core-position{
+    font-family: 'DM Sans';
+    margin-top: 20px;
+    box-shadow: 0px 18px 40px rgba(112, 144, 176, 0.12);
+border-radius: 16px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 40%;
+height: 90px;
+
+}
+
+.button{
+    border:none;
+    cursor: pointer;
+}
+
+.disabled{
+    background-color: #60659b;
 }

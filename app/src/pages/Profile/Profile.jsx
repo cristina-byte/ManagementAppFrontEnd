@@ -34,12 +34,14 @@ function Profile(){
             {queryData && <div>
                 <div className="profile-info">
                 <img src={queryData.imageLink} alt="" />
-                <h1>{queryData.name}</h1>
+                 <div className="data">
+                 <h1>{queryData.name}</h1>
                 <p>Volunteer</p>
                 <p>Joined in 23.09.2022</p>
-                <p>{queryData.email}</p>
-                <p>{queryData.phone}</p>
+                <p style={{fontSize:'13px',color:'#2E3789',fontWeight: '500'}}>{queryData.email}</p>
+                <p style={{fontSize:'13px',color:'#2E3789',fontWeight: '500'}}>{queryData.phone}</p>
                 <button>Message</button>
+                 </div>
             </div>
             <div className="activities-history">
                  <h1>{queryData.coreTeamPositions?.length>0?"Activity":"No activity yet"}</h1>

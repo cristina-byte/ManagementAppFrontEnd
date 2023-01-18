@@ -1,26 +1,16 @@
-.signIn{
+
+.resetPassword-page, .register-page, .signIn-page{
+    font-family: 'Poppins', sans-serif;
     background-color: #F5F5F5;
     display: flex;
-    justify-content: space-around;
-    height:100vh;
     flex-wrap: wrap;
 }
-
-.register{
-    background-color: #F5F5F5;
-    display: flex;
-    justify-content: space-around;
-    height:100vh;
-    flex-wrap: wrap;
-}
-
-
-
 
 .welcome-message{
+    height:100vh;
     color:#F2F2F2;
     width:50%;
-    min-width: 300px;
+    min-width: 200px;
     background: linear-gradient(158.71deg, #2E3789 32.61%, rgba(255, 111, 30, 0.94) 131.44%);
     border-radius: 0px 0px 200px 0px;
     display: flex;
@@ -36,7 +26,7 @@
 .form-container{
     font-family: 'DM Sans', sans-serif;
     width: 50%;
-    min-width: 500px;
+    min-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +35,14 @@
 }
 
 form{
+    padding-top: 20px;
+    width: 80%;
     display: flex;
-    gap:10px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: wrap;     
+}
+
+.form-instruction{
+    color:#A3AED0;
+    margin-top: 7px;
 }

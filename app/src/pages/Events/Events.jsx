@@ -1,5 +1,6 @@
 import {useState,useEffect} from "react"
 import {useQuery} from "react-query"
+import ReactPaginate from "react-paginate"
 import {Link} from "react-router-dom"
 import axiosInstanceLocal from "../../axiosLocal"
 import Event from "../../components/Event"
@@ -7,30 +8,61 @@ import style from "./Events.css"
 
 export default function Events(){
 
-    const [events, setEvents]=useState(null)
-    const [parameter,setParameter]=useState("")
-    
-    const getEvents=async ()=>{
-        const response=await axiosInstanceLocal.get(`/Events${parameter}?page=1`)
+    const fetchEvents=async ()=>{
+        const response=await axiosInstanceLocal.get(`/Events?page=${currentPage}`)
+
+        const totalItems=JSON.parse(response.headers.get('x-total')).Total
+        const itemsPerPage=JSON.parse(response.headers.get('x-total')).ItemsPerPage
+
+        const totalPages=Math.ceil(totalItems/itemsPerPage)
+        console.log(totalPages)
+
+
+        setTotalPages(totalPages)
         return response.data
+    }
+
+    const [currentPage,setCurrentPage]=useState(1)
+    const [totalPages,setTotalPages]=useState(0)
+
+    const handlePageClick=(data)=>{
+        setCurrentPage(data.selected+1)
     }
 
     const {
         data:eventsData,
         isLoading:eventsLoading
-    }=useQuery(['eventsQueryKey'],getEvents)
+    }=useQuery(['eventsQueryKey',currentPage],fetchEvents)
 
     return (
-        <section className="events">
+        <section className="events page">
              <h1 className="title-page">Events</h1>
-             <div className="menu-items">
-              <button onClick={ (event)=>setParameter("")}>All</button>
-              <button onClick={(event)=>setParameter("/Upcoming") }>Upcoming</button>
-              <button onClick={(event)=>setParameter("/In Process")}>In Process</button>
-             </div>
+             <button className="button" >Add Event</button>
              {eventsData && <div className="events-container">
-                {events && events.map( event=><Event key={event.id} name={event.name} imgUrl={event.imageLink} id={event.id} /> )}
-             </div>}
+                {eventsData.map( event=><Event key={event.id} name={event.name} imgUrl={event.imageLink} id={event.id} /> )}
+             </div>
+             }
+
+           <div className="navigation-buttons">
+           <ReactPaginate
+           previousLabel='< Previous'
+           nextLabel='>'
+           breakLabel='...'
+           pageCount={totalPages}
+           onPageChange={handlePageClick}
+           containerClassName="pagination"
+           pageClassName="page-item"
+           pageLinkClassName="page-link"
+           previousClassName="page-item"
+           nextClassName="page-item"
+           activeLinkClassName="active-link"
+           previousLinkClassName="page-link"
+           nextLinkClassName="page-link"
+           breakClassName='page-item'
+           breakLinkClassName="page-link"
+           />
+           </div>
+
         </section>
     )
 }
