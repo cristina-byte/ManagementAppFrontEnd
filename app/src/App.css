@@ -8,6 +8,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+/*Header style*/
+
 .menu{
     font-weight: 300;
     font-size: 0.7rem;
@@ -21,13 +24,8 @@
     background-color: #2E3789;
 }
 
-img{
-    width: 500px;
-}
-
 .menu li{
-    list-style: none;
-    
+    list-style: none;  
 }
 
 .menu li a{
@@ -71,26 +69,33 @@ a{
 .page{
     padding-left:100px;
     margin-left: 6%;
-    padding-top: 70px;  
+    padding-top: 30px;  
     padding-bottom: 50px;
+    position: relative;
 }
 
-.current-user-header img{
+.current-profile-img{
     width:30px;
     margin-left: 10px;
     height: 30px;
+    object-fit: cover;
     border-radius: 15px;
 }
 
 .current-user-header{
-    position: fixed;
-    right: 10px;
+    right: 15px;
     font-size: 13px;
    display: flex;
    align-items: center;
    justify-content: end;
-   padding: 7px 13px;
+   top:15px;
+   padding: 8px 10px;
+   border-radius: 10px;
+  
 }
+
+
+/*Pagination component*/
 
 .pagination{
     display: flex;
@@ -101,6 +106,10 @@ a{
 
 .page-item{
     list-style: none;
+}
+
+.disabled{
+    border-radius: 6px;
 }
 
 .page-link{
@@ -120,36 +129,285 @@ a{
 }
 
 
-/*Oportunity style*/
+/*Oportunities style*/
 
-
-
-.event-data, .oportunity-data{
-    padding: 10px;
-    border-radius: 9px;
-    background-color: white;
-    box-shadow: 14px 17px 40px 4px rgba(112, 144, 176, 0.08);
-    width: 70%;
+.oportunity{
+    position: relative;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    border: 0.3px solid rgb(234, 234, 234);
+    width: 20%;
+    border-radius: 10px;   
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  
 }
 
-.core-position{
-    font-family: 'DM Sans';
-    margin-top: 20px;
-    box-shadow: 0px 18px 40px rgba(112, 144, 176, 0.12);
-border-radius: 16px;
+.oportunity-data .item-title{
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 7px;
+    color: #1B2559;
+}
+
+.oportunity img{
+    border-radius: 10px 10px 0px 0px;
+    width: 100%; 
+    object-fit:cover; 
+    height: 200px; 
+}
+
+.oportunity-data{
+    position: relative;
+    padding: 9px 9px 9px 9px;
+    border-radius: 9px;
+    height: 180px;
+}
+
+.oportunity-section .oportunity-data{
+    width: 70%;
+    padding: 20px 20px 20px 30px; 
+    height: auto;
+}
+
+
+
+.oportunity-description{
+    font-size: 12px;
+    color: #A3AED0;
+    margin-top: 7px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.oportunities-container{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap:15px;
+    margin-bottom: 30px; 
+}
+
+.monthDate{
+    font-weight: 600;
+    color: #212c92;
+}
+
+.oportunity-section{
+    display: flex;
+    justify-content: center;
+}
+
+.oportunity .actions{
+    margin-top: 10px; 
+}
+
+.postedAt{
+    margin-top: 11px;
+    color: #2c419f;
+    font-size: 12px;
+}
+
+.action{
+    margin-right: 10px;
+    font-size: 14px;
+    color: #2E3789;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+   
+}
+
+.bottom{
+    position: absolute;
+    bottom: 10px;
+}
+
+
+.core-position-details{
+font-family: 'DM Sans';
+margin-top: 20px;
+border: 0.3px solid rgb(234, 234, 234);
+padding: 9px 9px 9px 9px;
+border-radius: 9px;
+box-shadow: 0 2px 5px rgba(154,160,185,.05), 0 7px 20px rgba(166,173,201,.2);
 display: flex;
 justify-content: space-around;
 align-items: center;
-width: 40%;
+width: 60%;
 height: 90px;
 
 }
 
 .button{
     border:none;
-    cursor: pointer;
+}
+
+.button:disabled{
+    background-color: #60659b;
 }
 
 .disabled{
     background-color: #60659b;
+}
+
+
+/* Calendar style */
+
+.calendar{
+    display: flex;
+    width: 95%;
+    border-top: 3px solid #4A58D4;
+    flex-direction: column;
+    box-shadow: 14px 17px 40px 37px rgba(112, 144, 176, 0.08);
+    border-radius: 10px;
+}
+
+
+/*Calendar-header*/
+
+.calendar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+}
+
+.date{
+    color:#4A58D4;
+}
+
+
+/*Day component style*/
+
+.daysOfWeek{
+    display: flex;
+    flex: 1;
+}
+
+.row{
+    display: flex;
+    flex: 1;
+}
+
+.day{
+    width: 30%;
+    border: 0.3px solid #CCCCCC;
+    border-bottom: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-height: 100px; 
+}
+
+.no-left-border{
+    border-left: none;
+}
+
+.dayOfWeek{
+    color: #666666;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-day{
+    color: red;
+    font-weight: 500;
+}
+
+.inactive-day{
+    color: #CCCCCC;
+}
+
+
+/*Meetings style*/
+
+.meeting{
+    background: #2E3789;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    margin:5px;
+    color: aliceblue;
+    width: 90%;
+}
+
+.meeting-title{
+    font-size: 13px;
+    margin-bottom: 5px;
+
+}
+
+.meeting-address{
+    font-size: 12px;
+
+}
+
+.meeting-time{
+    font-size: 13px;
+}
+
+
+/*Meeting view*/
+.meeting-view{
+    border-top:3px solid #2E3789;
+    width: 50%;
+    border-radius: 8px;
+    padding: 25px;
+    position:relative;
+    box-shadow: 14px 17px 40px 37px rgba(112, 144, 176, 0.08);
+}
+
+.meeting-view h1{
+    color:#2E3789;
+}
+
+.section-title{
+    font-size: 16px;
+    color: #3E435D;
+    margin-top: 30px;
+}
+
+.navigation-buttons{
+    position: absolute;
+    left: 50%;
+}
+
+
+/*Error Page -style*/
+
+.error-page{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page .status{
+    color: #212c92;
+    font-size: 90px;
+}
+
+.error-page .text-error{
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.error-page .error-description{
+    margin-top: 10px;
+    width: 23%;
+    text-align: center;
+    font-size: 15px;
+    color: #4a4a4a;
 }

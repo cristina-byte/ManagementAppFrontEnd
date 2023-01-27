@@ -1,29 +1,32 @@
 import {useQuery} from "react-query"
-import { useState } from "react"
+import { useState,useContext } from "react"
 import ReactPaginate from "react-paginate"
-import axiosInstanceLocal from "../../axiosLocal"
+import axiosInstanceLocal from "../../utils/axiosLocal"
 import Member from "../../components/Member"
 import style from "./Members.css"
+import {AuthUserContext} from "../../authentification/AuthenticationProvider"
 
 export default function Members(){
 
-
     const [currentPage,setCurrentPage]=useState(1)
     const [totalPages,setTotalPages]=useState(0)
+    const [totalItems,setTotalItems]=useState(0)
 
+     //take from context
+     const {authUser}=useContext(AuthUserContext)
+    
     const fetchMembers=async()=>{
-        console.log("refetching")
-        const response=await axiosInstanceLocal.get(`/Users?page=${currentPage}`)
-         const totalItems=JSON.parse(response.headers.get("x-total")).Total
-         const itemsPerPage=JSON.parse(response.headers.get("x-total")).ItemsPerPage
-         setTotalPages(Math.ceil(totalItems/itemsPerPage))
-        return response.data
+
+        const response=await axiosInstanceLocal.get(`/Users?page=${currentPage}`, 
+        { headers: {"Authorization" : `Bearer ${authUser.token}`} })
+        const totalItems=JSON.parse(response.headers.get("x-total")).Total
+        setTotalItems(totalItems)
+        const itemsPerPage=JSON.parse(response.headers.get("x-total")).ItemsPerPage
+        setTotalPages(Math.ceil(totalItems/itemsPerPage))
+        return response.data 
     }
 
-    const {
-        data,
-        isLoading
-    }=useQuery(['queryPage',currentPage],fetchMembers)
+    const {data}=useQuery(['queryPage',currentPage],fetchMembers)
 
     function getMembers(){
         return data.map(member=><Member key={member.id} 
@@ -37,7 +40,7 @@ export default function Members(){
 
     return (
         <section className="members page">
-           <h1 className="title-page">Members {data && data.length}</h1>
+           <h1 className="title-page">Members {totalItems}</h1>
            <div className="members-container">
             {data && getMembers()}
            </div>

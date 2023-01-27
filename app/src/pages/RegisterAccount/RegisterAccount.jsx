@@ -3,35 +3,53 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Button from '@mui/material/Button'
 import {useForm} from 'react-hook-form'
 import {Link} from "react-router-dom" 
-import axiosInstanceLocal from "../../axiosLocal"
+import axiosInstanceLocal from "../../utils/axiosLocal"
 import style from "../../welcomePageStyle.css"
 import Moment from 'moment'
+import {useState,forwardRef} from "react"
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import { useMutation } from 'react-query'
+import { hasSpecialCharacter, hasCapitalLetter,hasNumericCharacter } from '../../utils/regex';
 
 function RegisterAccount(){
 
     const {register,handleSubmit,formState,setValue,watch}=useForm()
 
-    var dateValue=watch('date')
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailure, setShowFailure] = useState(false);
 
+    const Alert =forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+      });
+
+    var dateValue=watch('date')
+    const dateChange=(e)=>{
+        setValue('date',e.toString())
+     }
+
+     const registerUser=useMutation({
+        mutationFn:async (user)=>{
+            const response=await axiosInstanceLocal.post('https://localhost:7257/api/auth/signup',user)
+            return response
+        }
+     })
 
     const handleSubmission=async (data)=>{
-        console.log("data to be sent to api")
-        console.log(data.date) 
         const user={
             userName:data.email,
-            name:data.fname,
+            name:data.fname+" "+data.lname,
             email:data.email,
             phoneNumber:data.phone,
             password:data.password,
-            birthDay:data.date
+            birthDay:data.date?Moment(data.date).format('YYYY-MM-DDTHH:mm:ss.sssZ'):
+            Moment(new Date()).format('YYYY-MM-DDTHH:mm:ss.sssZ')
         }
-        const response= await axiosInstanceLocal.post('https://localhost:7257/api/auth/signup',user)
-        console.log(response)   
+        registerUser.mutate(user,{
+            onError:()=>setShowFailure(true),
+            onSuccess:()=>setShowSuccess(true)
+        })
     }
-
-     const dateChange=(e)=>{
-        setValue('date',e.toString())
-     }
 
     return (
         <div className="register-page">
@@ -100,13 +118,30 @@ function RegisterAccount(){
                type="password"
                {...register('password',
                {required:true,minLength:{value:8,message:'The min length is 8'},
-               pattern:{value:/[A-Z]/,message:'It must contain at least one capital letter'}})}
+               validate:{
+                capitalLetter:hasCapitalLetter,
+                numericCharacter:hasNumericCharacter,
+                specialCharacter:hasSpecialCharacter,
+                }}
+                )}
             /> 
 
-             <Button sx={ {display:"block",width:"100%",height:"45px",marginTop:'20px',marginBottom:'20px'}} type="submit" variant="contained">Sign up</Button>
+             <Button sx={ {display:"block",width:"100%",height:"45px",marginTop:'20px',marginBottom:'20px',background:'#2E3789'}} type="submit" variant="contained">Sign up</Button>
              <p style={ {display:'inline-block',marginRight:'5px'}  }>Have already an account?</p>
              <Link to="/sign-in">Log in</Link>
             </form>
+
+            <Snackbar open={showSuccess} autoHideDuration={6000} onClose={(e,r)=>setShowSuccess(false)}>
+              <Alert onClose={(e,r)=>setShowSuccess(false)} severity="success" sx={{ width: '100%' }}>
+               User successfully registered
+              </Alert>
+            </Snackbar>
+
+            <Snackbar open={showFailure} autoHideDuration={6000} onClose={(e,r)=>setShowFailure(false)}>
+              <Alert onClose={(e,r)=>setShowFailure(false)} severity="error" sx={{ width: '100%' }}>
+               Registration failed
+              </Alert>
+            </Snackbar>
 
         </div>
     </div>

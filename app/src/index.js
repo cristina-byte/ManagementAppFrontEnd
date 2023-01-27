@@ -6,13 +6,12 @@ import { MsalProvider } from "@azure/msal-react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { QueryClient, QueryClientProvider } from "react-query"
-import router from './Router';
-import { msalConfig } from "./authConfig";
+import router from "./utils/Router"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient=new QueryClient()
 
-const msalInstance = new PublicClientApplication(msalConfig);
 
 root.render(
   <LocalizationProvider dateAdapter={AdapterDayjs}>

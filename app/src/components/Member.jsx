@@ -5,10 +5,10 @@ export default function Member(props){
         <div className="member">
             <img src={props.imgUrl} alt="" />
             <div className="member-data">
-           <Link style={ {color:'#2B2B2B',fontWeight:'500',fontSize:'14px'}} to={""+props.id}  >{props.name}</Link>
-            <p className="role">{props.id}</p>
+           <Link style={ {color:'#2B2B2B',fontWeight:'500',fontSize:'14px'}} to={"/members/"+props.id}  >{props.name}</Link>
+           
             </div>
-            { props.isOnline && <div className="online"></div>}
+            
         </div>
     )
 }

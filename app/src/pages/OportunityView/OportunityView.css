@@ -1,15 +1,13 @@
-.oportunity-data img{
-    width: 331px;
-    border-radius: 4px;
-}
-
 .oportunity-data .name{
     color: #050505;
     margin-top: 20px;
 }
 
 .oportunity-data .date{
-    color: #E56F8C;
+    color: #6c6c6c;
+    text-transform: capitalize;
+    color: #212c92;
+    font-weight: 500;
     margin-top: 5px;
 }
 
@@ -31,4 +29,10 @@
     color: #3E435D;
     font-size: 16px;
     margin-top: 5px;
+    width: 70%;
+}
+
+
+.oportunity-data img{
+    width: 60%;
 }
