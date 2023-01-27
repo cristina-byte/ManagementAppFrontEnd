@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import {toLocalDate} from "../utils/dateUtils"
-import { useQuery } from 'react-query';
+import { useQuery,useQueryClient } from 'react-query';
 import axiosInstanceLocal from '../utils/axiosLocal';
 import { useContext, useState } from 'react';
 import { AuthUserContext } from '../authentification/AuthenticationProvider';
@@ -14,6 +14,8 @@ function CoreTeamPosition(props){
 
     //take from context
     const {authUser}=useContext(AuthUserContext)
+
+    const queryClient=useQueryClient()
 
     const fetchApplicants=async()=>{
         const response=await axiosInstanceLocal.get(`oportunities/${props.oportunity}/positions/${props.id}/applicants`,
@@ -41,7 +43,7 @@ function CoreTeamPosition(props){
                 <p style={ {color:'#2B3674',} } >{props.name}</p>
                 <p style={{color:' #A3AED0',marginTop:'5px'}}>{props.leftSits}{' position free'}</p>
                 </div>
-                <Button onClick={ ()=>props.aply(props.id)} disabled={dif || containsUser(data,authUser.id) || props.leftSits==0} variant="contained" sx={ {background:'#2E3789'}} >Apply</Button>
+                <Button onClick={ ()=>{props.aply(props.id);queryClient.invalidateQueries(['applicantsQuery'])}} disabled={dif || containsUser(data,authUser.id) || props.leftSits==0} variant="contained" sx={ {background:'#2E3789'}} >Apply</Button>
                {authUser.roles.includes('admin') && <Button onClick={()=>setShowApplicants( (prev)=>!prev) } variant="contained" sx={ {background:'#2E3789'}}> { showApplicants?"Hide applicants":"See Applicants"} </Button> } 
             </div>
             }
