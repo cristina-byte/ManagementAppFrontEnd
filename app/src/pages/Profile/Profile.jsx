@@ -79,14 +79,12 @@ function Profile(){
 
                 <div>
                 <h1>{queryData.name}</h1>
-                <Button variant="contained" style={{marginTop:'15px'}}>Message</Button>
                 </div>
                 </div>
 
                 <div className="profile-content">
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                     <Tab label="About"  />
-                    <Tab label="Teams"  />
                     {
                         authUser.id==routeParams.id &&
                         <Tab label="Edit"/>
@@ -102,10 +100,6 @@ function Profile(){
                 </TabPanel>
 
                 <TabPanel value={value} index={1}>
-                    Teams
-                </TabPanel>
-
-                <TabPanel value={value} index={2}>
                     <div className="edit-container">
                         <form style={{flexDirection:'column',justifyContent:'center'}} onSubmit={handleSubmit}>
                         <img className="profile-photo" src={queryData.imageLink}></img>

@@ -55,12 +55,6 @@ export default function Header(){
             <li> 
                 <NavLink 
                 style={{display:"flex", flexDirection:"column",alignItems:"center"}}  
-                to="/chat"> <ChatIcon/>Chat</NavLink>
-            </li>
-
-            <li> 
-                <NavLink 
-                style={{display:"flex", flexDirection:"column",alignItems:"center"}}  
                 to="/oportunities"><NotificationsIcon/>Oportunities</NavLink>
             </li>
 

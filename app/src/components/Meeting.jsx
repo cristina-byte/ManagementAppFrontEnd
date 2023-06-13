@@ -5,8 +5,8 @@ import {toLocalDate,isInProcess} from "../utils/dateUtils"
 function Meeting(props){
 
     return (
-        <Link to={`${props.id}`}>
-        <div className="meeting">
+        <Link to={`/calendar/${props.id}`}>
+        <div className={ toLocalDate(new Date(props.endTime))<new Date()?'meetings finished':'meeting'   }>
             { isInProcess(toLocalDate(new Date(props.startTime)),toLocalDate(new Date(props.endTime))) && <div className="online"></div>}
             <p className="meeting-title">{props.name}</p>
             <p className="meeting-time">{format( toLocalDate(new Date(props.startTime)),"HH:mm")} - 

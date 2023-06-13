@@ -17,6 +17,9 @@ import {AuthorizationRoute} from "../components/AuthorizationRoute"
 import NoMatchRoute from "../pages/NoMatchRoute/NoMatchRoute"
 import { AuthenticatedUserProvider } from "../authentification/AuthenticationProvider"
 import Home from "../pages/Home/Home"
+import Teams from "../pages/Teams/Teams"
+import AddTeam from "../pages/Teams/AddTeam"
+import Team from "../pages/Teams/Team"
 
 const router=createBrowserRouter([
     {
@@ -73,7 +76,20 @@ const router=createBrowserRouter([
             {
                 path:'settings',
                 element:<PrivateRoute allowList={['admin']} redirectUrl="/" ><Settings/></PrivateRoute>
+            },
+            {
+                path:'teams',
+                element:<Teams/>
+            },
+            {
+                path:'teams/add',
+                element:<AddTeam/>
+            },
+            {
+                path:'teams/:id',
+                element:<Team/>
             }
+
         ]
     },
     {

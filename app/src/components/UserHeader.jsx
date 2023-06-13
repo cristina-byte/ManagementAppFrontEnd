@@ -20,10 +20,12 @@ export const UserHeader=()=>{
     return (
         <div className="current-user-header">
             {data && 
-            <div>      
+            <div style={{display:"flex",alignItems:"center",margin:"6px"}}>      
               <NavLink 
               style={{display:"flex", flexDirection:"column",alignItems:"center"}}
-              to={`/members/${data.id}`}>{data.name}</NavLink>
+              to={`/members/${data.id}`}>{data.name}
+              </NavLink>
+
               <img className="current-profile-img" src={data.imageLink} />
             </div>
             }

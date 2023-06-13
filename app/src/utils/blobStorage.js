@@ -1,8 +1,8 @@
 import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
 
 
-const sasToken = 'sv=2021-06-08&ss=b&srt=sco&sp=rwdlaciytfx&se=2023-01-28T18:29:44Z&st=2023-01-19T10:29:44Z&spr=https&sig=srKlbgDZdRPo9UGmh2R6A06EdXaRHAXR1gvdtq649QM%3D';
-const storageAccountName = 'volunteerstorage'; 
+const sasToken = 'sv=2021-06-08&ss=b&srt=co&sp=rwdlaciytfx&se=2023-04-20T01:12:50Z&st=2023-02-24T18:12:50Z&spr=https&sig=%2Bq2EZF0jhvJE5KuzobWXDCOi19vxhxRkRMukotAIiDg%3D';
+const storageAccountName = 'cristinastorageaccount'; 
 
 
 // Feature flag - disable storage feature to app if not configured

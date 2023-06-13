@@ -54,6 +54,7 @@ function SignIn(){
             console.log("Autentificare cu succes")
             navigate('/')
         }
+    
     })
     }
    

@@ -63,13 +63,16 @@ function EditOportunity(){
             id:parameter.id,
             title:dt.oportunityName,
             description:dt.description,
-            positions:dt.coreTeamPositions,
+            positions:dt.coreTeamPositions?dt.coreTeamPositions:[],
             startDate:dt.startDate?new Date(dt.startDate).toISOString():toLocalDate(new Date(data.startDate)).toISOString(),
             endDate:dt.endDate?new Date(dt.endDate).toISOString():toLocalDate(new Date(data.endDate)).toISOString(),
             location:dt.location,
             imageLink:blobsInContainer?blobsInContainer.toString():data.imageLink,
             applicationDeadline:dt.deadline?new Date(dt.deadline).toISOString():toLocalDate(new Date(data.applicationDeadline)).toISOString()
         }
+
+        console.log(oportunity) 
+
         addOportunity.mutate(oportunity,{
           onSuccess:()=>setShowSuccess(true)
         })

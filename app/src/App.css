@@ -69,7 +69,7 @@ a{
 .page{
     padding-left:100px;
     margin-left: 6%;
-    padding-top: 30px;  
+     
     padding-bottom: 50px;
     position: relative;
 }
@@ -144,7 +144,7 @@ a{
   
 }
 
-.oportunity-data .item-title{
+ .item-title{
     font-size: 16px;
     font-weight: 500;
     margin-top: 7px;
@@ -190,6 +190,7 @@ a{
     width: 100%;
     display: flex;
     gap:15px;
+    flex-wrap: wrap;
     margin-bottom: 30px; 
 }
 
@@ -410,4 +411,213 @@ height: 90px;
     text-align: center;
     font-size: 15px;
     color: #4a4a4a;
+}
+
+/*Home page elements style*/
+
+.home-oportunity{
+    display: flex;
+    background: white;
+    border: 0.3px solid rgb(234, 234, 234);
+    border-radius: 10px;   
+    width: 30%;
+    padding: 9px;
+    gap: 10px;
+    min-width: 300px;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+}
+
+.home-oportunity img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.deadline{
+    color: #A3AED0;
+    font-size: 13.5px;
+}
+
+
+.home-sections{
+    display: flex;
+    gap: 40px;
+    padding-top: 30px;
+}
+
+.finished{
+    background: #575b7c;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    margin:5px;
+    color: aliceblue;
+    width: 90%;
+}
+
+div.teams{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.team{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:10px;
+    height: 120px;
+    width: 15vw;
+    border-radius: 3px;
+    min-width: 150px;
+    border: 0.3px solid rgb(234, 234, 234);  
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+}
+
+.team-name{
+    color: #2c419f;
+    font-weight: 500;
+}
+.members-number{
+    margin-top: 10px;
+    color: #b4b6bd;
+    font-size: 12px;
+}
+
+.team-members{
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+    gap:5px;
+}
+
+.left-members{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 2.5px;
+    background-color: #212c92;
+}
+
+.team-panel{
+    width: 97%;
+    height: 100vh;
+    border: 0.2px solid rgba(198, 198, 198, 0.536);
+    border-radius: 10px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+
+.team-header{
+    border-bottom: 0.2px solid rgba(198, 198, 198, 0.536);
+    justify-content: space-between;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.team-logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #d9ddf3;
+    color:#2c419f;
+    
+}
+
+.team-menu{
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    flex-wrap: wrap;
+}
+
+.tasks-panel{
+    margin-top: 10px;
+    display: flex;
+    gap:15px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.toDoList{
+    width: 23%;
+    min-width: 200px;
+    background-color: #4A58D4;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.task{
+    position: relative;
+    height: 40px;
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    font-size: 13px;
+    border-radius: 4px;
+    display: flex;
+    
+    justify-content:center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.add-task{
+    font-weight: bolder;
+
+}
+
+.button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button2{
+    width: 100%;
+    border-radius: 4px;
+    text-align: center;
+    height: 40px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button2:hover{
+    background-color: whitesmoke;
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.25));
+    font-size: 14.2px;
+}
+
+
+
+.toDo-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-sections{
+    flex-wrap: wrap;
 }

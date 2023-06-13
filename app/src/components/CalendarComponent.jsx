@@ -30,6 +30,7 @@ const Calendar=()=>{
   
     //functie care returneaza meetings from api pentru luna si anul curent
     const fetchMeetings=async ()=>{
+        console.log(startOfMonth(currentDate).toISOString())
         const response=await axiosInstanceLocal.get(`${authUser.id}/meetings?month=${currentDate.getMonth()+1}&year=${currentDate.getFullYear()}`,
         { headers: {"Authorization" : `Bearer ${authUser.token}`} })
         return response.data
